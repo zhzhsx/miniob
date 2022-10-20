@@ -5,10 +5,10 @@ MESSAGE(STATUS "This is PROJECT_SOURCE_DIR dir " ${PROJECT_SOURCE_DIR})
 
 
 #INCLUDE_DIRECTORIES([AFTER|BEFORE] [SYSTEM] dir1 dir2 ...)
-INCLUDE_DIRECTORIES(. ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/../../deps /usr/local/include SYSTEM)
+INCLUDE_DIRECTORIES(. ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/../../deps /usr/local/include /opt/homebrew/include SYSTEM)
 # 父cmake 设置的include_directories 和link_directories并不传导到子cmake里面
 #INCLUDE_DIRECTORIES(BEFORE ${CMAKE_INSTALL_PREFIX}/include)
-LINK_DIRECTORIES(/usr/local/lib ${PROJECT_BINARY_DIR}/../../lib)
+LINK_DIRECTORIES(/usr/local/lib ${PROJECT_BINARY_DIR}/../../lib /opt/homebrew/lib)
 
 
 FILE(GLOB_RECURSE ALL_SRC *.cpp *.c)

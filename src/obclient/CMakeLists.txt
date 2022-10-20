@@ -4,11 +4,11 @@ MESSAGE("Begin to build " obclient)
 INCLUDE(CheckIncludeFiles)
 
 #INCLUDE_DIRECTORIES([AFTER|BEFORE] [SYSTEM] dir1 dir2 ...)
-TARGET_INCLUDE_DIRECTORIES(obclient PRIVATE . ${PROJECT_SOURCE_DIR}/../deps /usr/local/include /usr/include)
+TARGET_INCLUDE_DIRECTORIES(obclient PRIVATE . ${PROJECT_SOURCE_DIR}/../deps /usr/local/include /usr/include /opt/homebrew/include)
 # 父cmake 设置的include_directories 和link_directories并不传导到子cmake里面
 #INCLUDE_DIRECTORIES(BEFORE ${CMAKE_INSTALL_PREFIX}/include)
 
-TARGET_LINK_DIRECTORIES(obclient PRIVATE /usr/local/lib ${PROJECT_BINARY_DIR}/../../lib)
+TARGET_LINK_DIRECTORIES(obclient PRIVATE /usr/local/lib ${PROJECT_BINARY_DIR}/../../lib /opt/homebrew/lib)
 
 # stdio.h 必须放在readline/readline.h 前面，因为readline头文件不能直接单独编译
 CHECK_INCLUDE_FILES("stdio.h;readline/readline.h" HAVE_READLINE_HEADER)
